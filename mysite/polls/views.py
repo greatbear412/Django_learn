@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.urls import reverse
 from django.views import generic
 
@@ -30,6 +30,7 @@ class ResultsView(generic.DetailView):
     template_name = 'polls/results.html'
 
 def vote(request, question_id):
+    return HttpResponseNotFound('<h1>Noooooooöooo</h1>')
     question = get_object_or_404(Question, pk=question_id)
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
@@ -45,3 +46,11 @@ def vote(request, question_id):
 
 def Test(request,*args,**kwargs):
     import pdb; pdb.set_trace()
+
+def test(request):
+    lists = range(3,7)
+    rowvolum1 = 'rowvolum1'
+    rowvolum2 = 'rowvolum2'
+    etext = '<a href="123123123">'
+    team = "we ig g2"
+    return render(request,"polls/test.html",locals())

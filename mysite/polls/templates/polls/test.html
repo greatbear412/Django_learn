@@ -1,0 +1,8 @@
+{% load polls_filter %}
+<ul>
+    {% for o in lists %}
+        <li class="{% autoescape off %}{% cycle rowvolum1 rowvolum2 %}{% endautoescape %}">{{ o }}</li>
+    {% endfor %}
+</ul>
+<div>{{etext | escape}}</div>
+<div>{{team|cuty:'g2'}}</div>
